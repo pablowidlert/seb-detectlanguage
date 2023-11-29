@@ -7,19 +7,24 @@ using RestSharp;
 using RestSharp.Authenticators.OAuth2;
 using System.Net;
 using RestSharp.Serializers.NewtonsoftJson;
-using Backend.IntegrationTests.Properties;
+using API.IntegrationTests.Helpers;
 
 [TestFixture]
 public class DetectLanguageAPIIntegrationTests
 {
     readonly string BASE_URL = EnvironmentVariables.Variables.Environment.BaseUrl;
-    readonly string DETECT_LANGUAGE_API_TOKEN = EnvironmentVariables.Variables.Environment.DetectLanguageAPIToken;
+    private string DETECT_LANGUAGE_API_TOKEN = EnvironmentVariables.Variables.Environment.DetectLanguageAPIToken;
 
     private RestClient _client;
 
     [SetUp]
-    public void Setup()
-    {
+    public void Setup() {
+        // If present in environment update the API key
+        const string API_TOKEN = "DETECT_LANGUAGE_API_TOKEN";
+        if(!string.IsNullOrEmpty(Environment.GetEnvironmentVariable(API_TOKEN))) {
+          DETECT_LANGUAGE_API_TOKEN = Environment.GetEnvironmentVariable(API_TOKEN)!;   
+        }
+
         // Setup RestSharp client
         var options = new RestClientOptions(BASE_URL)
         {

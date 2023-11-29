@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 
-namespace Backend.IntegrationTests.Properties
+namespace API.IntegrationTests.Helpers
 {
     public static class EnvironmentVariables
     {
