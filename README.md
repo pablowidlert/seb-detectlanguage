@@ -1,5 +1,7 @@
 # SEB Detect Language Test
 
+## Prerequisite
+This project uses .NET 8 Download [here](https://dotnet.microsoft.com/en-us/download/dotnet)
 
 ## Build
 
@@ -10,7 +12,8 @@ Let NuGet download the packages and then:
 
 ## Running integration tests
 
-**NOTE**: You need to provide your own DetectLanguageAPIToken in the SEBDetectLanguageProperties.json file for the tests to work.
+**NOTE**: You need to provide your own DetectLanguageAPIToken in the SEBDetectLanguageProperties.json file for the tests to work locally.
+The GitHub Action will trigger on a push or a pull request but can be triggered manually. GitHub Actions uses an API key for Detect Language that is stored in GitHub Secrets and passed into the GitHub Action.
 
 The integration tests can be run:
 - via Visual Studio Test Explorer:
@@ -21,4 +24,4 @@ The integration tests can be run:
 
 ## Authors
 
-* **Pablo Widlert** - API integration tests
+* **Pablo Widlert** - API integration tests and GitHub Action yaml
