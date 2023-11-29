@@ -1,5 +1,4 @@
-﻿using System.Reflection;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 
 namespace Backend.IntegrationTests.Properties
 {
@@ -9,7 +8,7 @@ namespace Backend.IntegrationTests.Properties
 
         private static dynamic ReadEnvironmentVariablesFromFile()
         {
-            var path = Path.Combine(Directory.GetCurrentDirectory(), "..\\..\\..\\SEBDetectLanguageProperties.json");
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "..", "..", "..", "SEBDetectLanguageProperties.json");
             var json = JObject.Parse(File.ReadAllText(path));
 
             return json.ToObject<dynamic>()!;
