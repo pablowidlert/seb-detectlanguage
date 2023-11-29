@@ -28,4 +28,4 @@ jobs:
       env:
         DETECT_LANGUAGE_API_TOKEN: ${{secrets.DETECT_LANGUAGE_API_TOKEN}}
 
-      run: dotnet test --no-build --verbosity normal $DETECT_LANGUAGE_API_TOKEN
+      run: $DETECT_LANGUAGE_API_TOKEN dotnet test --no-build --verbosity normal
